@@ -1,0 +1,21 @@
+include: resource://TYPO3.TypoScript/Private/TypoScript/Root.ts2
+include: resource://TYPO3.Neos/Private/TypoScript/Root.ts2
+include: resource://TYPO3.Neos.NodeTypes/Private/TypoScript/Root.ts2
+
+prototype(TYPO3.Neos:ImageUri) < prototype(TYPO3.Neos:ImageTag) {
+    asset = ${image}
+    # Unset default value to have default like in Fluid
+    maximumWidth = NULL
+    width = NULL
+    maximumHeight = NULL
+    height = NULL
+}
+
+imageUriProcessing = TYPO3.Neos:ImageUri {
+    maximumWidth = ${maximumWidth}
+    width = ${width}
+    maximumHeight = ${maximumHeight}
+    height = ${height}
+    allowUpScaling = ${allowUpScaling}
+    allowCropping = ${allowCropping}
+}
